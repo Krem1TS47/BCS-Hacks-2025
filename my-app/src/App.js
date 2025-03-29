@@ -1,8 +1,10 @@
+import './App.css';
+import Supabase from './Supabase';
+import Home from './components/Home'
 import logo from './logo.svg';
 import { CiMedal } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import './App.css';
-
 
 
 function BadgePoints() {
@@ -21,11 +23,10 @@ function BadgePoints() {
     );
 }
 
-
-
 function AddQuestion() {
     return (
         <div className="square">
+            <Home />
             <h2>Add Question</h2>
             <div className="titlerow">
             <h2>Enter Possible Answers:</h2>

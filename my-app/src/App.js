@@ -1,7 +1,6 @@
 import logo from './logo.svg';
-import { CiMedal } from "react-icons/ci";
-import { FaStar } from "react-icons/fa";
 import './App.css';
+import QuizCreator from './components/QuizCreator'
 
 function BadgePoints() {
   return (
@@ -45,33 +44,23 @@ function ProgressBar() {
 
 function ProgressSection() {
   return (
-    <div className="progress-section">
-      <h2>Progress</h2>
-      <ProgressBar />
-      <ProgressBar />
-      <ProgressBar />
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
 
-function StartQuiz() {
-  return (
-    <div>
-      <button className="start-quiz">Start Quiz</button>
-    </div>
-  );
-}
-
-export default function App() {
-  return (
-    <>
-      <div className="row">
-        <h2 className="app-title">Application Name</h2>
-        <BadgePoints />
-      </div>
-      <AddQuestion />
-      <ProgressSection />
-      <StartQuiz />
-    </>
-  );
-}
+export default App;

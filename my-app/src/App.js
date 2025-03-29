@@ -1,15 +1,26 @@
 import './App.css';
 import QuizCreator from './components/QuizCreator'
+import TestMain from './components/TestMain'
+import { useState } from 'react';
 
-function App() {
-  return (
-    <div className="min-h-screen bg-gray-100">
-      <QuizCreator />
-      <div>
-        
-      </div>
-    </div>
-  );
+
+
+
+export default function App() {
+    const [open, setOpen] = useState(false);
+    return(
+        open? (
+            <div className="min-h-screen bg-gray-100">
+            <QuizCreator />
+            <div>
+            </div>
+          </div>
+        ) : (
+            <TestMain />
+        )
+)
+
+}
 // import Supabase from './Supabase';
 // import Home from './components/Home'
 // import logo from './logo.svg';

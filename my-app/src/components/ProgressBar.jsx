@@ -1,11 +1,10 @@
 import { Progress } from "flowbite-react";
 
-export function ProgressBar() {
+export default function ProgressBar({value}) {
   return (
     <Progress
-      progress={45}
+      progress={value}
       progressLabelPosition="inside"
-      textLabel="Flowbite"
       textLabelPosition="outside"
       size="lg"
       labelProgress

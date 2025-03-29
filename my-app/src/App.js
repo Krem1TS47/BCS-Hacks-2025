@@ -26,7 +26,7 @@ export default function App() {
       <Header points={points} />
       {
         open? (
-          <QuizCreator setOpen={setOpen} points={points} />
+          <QuizCreator setOpen={setOpen} points={points}/>
         ) : (
           <TestMain setOpen={setOpen} />
         )

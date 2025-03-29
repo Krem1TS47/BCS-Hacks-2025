@@ -2,7 +2,8 @@ import React from 'react';
 
 const PointsTracker = ({
   setOpen,
-  points
+  points,
+  numberQuestions
 }) => {
   console.log('points: ' + points);
 
@@ -60,7 +61,7 @@ const PointsTracker = ({
       
       <div className="space-y-4">
         <div className="text-center mb-2">
-          <p>Question created: {}</p>
+          <p>Question created: {numberQuestions}</p>
         </div>
         
         <button onClick={() => setOpen(false)} type="button" className='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>

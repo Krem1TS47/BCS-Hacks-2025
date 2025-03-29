@@ -4,17 +4,29 @@ import TestMain from './components/TestMain'
 import React, { useState } from 'react';
 import Header from './components/Header';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Shop from './pages/Shop'; // Import the Shop page
+import Shop from './pages/Shop'; 
+import fetchPoints from './actions/fetchPoints';
 
 export default function App() {
   const [open, setOpen] = useState(true);
-  const [points, setPoints] = React.useState(5);
+  const [points, setPoints] = React.useState(0);
+
+  React.useEffect(() => {
+    getPoints();
+  });
+
+  async function getPoints() {
+    const pointsData = await fetchPoints();
+    console.log("pointsData: " + pointsData);
+    setPoints(pointsData);
+  }
+
   return (
     <div className="min-h-screen bg-gray-100">
       <Header points={points} />
       {
         open? (
-          <QuizCreator setOpen={setOpen}/>
+          <QuizCreator setOpen={setOpen} points={points} />
         ) : (
           <TestMain setOpen={setOpen} />
         )

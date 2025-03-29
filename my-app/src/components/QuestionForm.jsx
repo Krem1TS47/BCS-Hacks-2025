@@ -41,7 +41,7 @@ const QuestionForm = ({ onAddQuestion }) => {
             value={question}
             id="question" 
             onChange={(e) => setQuestion(e.target.value)}
-            class="bg-gray-200 text-black text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className="bg-gray-200 text-black text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Enter your question" 
             required 
           />
@@ -73,7 +73,7 @@ const QuestionForm = ({ onAddQuestion }) => {
             </div>
           ))}
         </div>
-        <button type="button" class='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>
+        <button type="button" className='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>
           Add question
         </button>
       </form>

@@ -1,8 +1,19 @@
 import React from 'react';
 
 const PointsTracker = ({
-  setOpen
+  setOpen,
+  points
 }) => {
+  console.log('points: ' + points);
+
+  const greenBar = (points /10 >= 1)? '100%': `${String(points/10*100)}%`;
+  const yellowBar = (points /20 >= 1)? '100%': `${String(points/20*100)}%`;
+  const redBar = (points /50 >= 1)? '100%': `${String(points/50*100)}%`;
+
+  console.log('greenBar: ' + greenBar);
+  console.log('yellowBar: ' + yellowBar);
+  console.log('redBar: ' + redBar);
+
   return (
     <div className="bg-white p-6 rounded-lg shadow">
       <h2 className="text-lg font-medium mb-4">Something to encourage</h2>
@@ -10,8 +21,8 @@ const PointsTracker = ({
       <div className="space-y-2 mb-6">
         <div className="space-y-1">
           <div className="flex items-center justify-between">          
-            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
-              <div className="h-3 bg-green-500 rounded-full" style={{ width: '50%' }}></div>
+            <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
+              <div className="h-3 bg-green-500 rounded-full" style={{ width: greenBar }}></div>
             </div>
             <span className='pl-4'>10</span>
           </div>
@@ -19,8 +30,8 @@ const PointsTracker = ({
         
         <div>
           <div className="flex items-center justify-between">          
-            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
-              <div className="h-3 bg-yellow-300 rounded-full" style={{ width: '25%' }}></div>
+            <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
+              <div className="h-3 bg-yellow-300 rounded-full" style={{ width: yellowBar }}></div>
             </div>
             <span className='pl-4'>20</span>
           </div>
@@ -28,8 +39,8 @@ const PointsTracker = ({
 
         <div>
           <div className="flex items-center justify-between">          
-            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
-              <div className="h-3 bg-red-500 rounded-full" style={{ width: '10%' }}></div>
+            <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
+              <div className="h-3 bg-red-500 rounded-full" style={{ width: redBar }}></div>
             </div>
             <span className='pl-4'>50</span>
           </div>
@@ -49,10 +60,10 @@ const PointsTracker = ({
       
       <div className="space-y-4">
         <div className="text-center mb-2">
-          <p>Question created: 10</p>
+          <p>Question created: {}</p>
         </div>
         
-        <button onClick={() => setOpen(false)} type="button" class='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>
+        <button onClick={() => setOpen(false)} type="button" className='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>
           Start quiz
         </button>
       </div>

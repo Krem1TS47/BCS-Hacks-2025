@@ -1,5 +1,5 @@
 .App {
-    background-color: #808080;
+    background-color: white;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -40,9 +40,102 @@
   }
 
 
-  body {
-    background-color: #f0f0f0;  /* Set a light gray background */
+body {
+    background-color: gray;
     margin: 0;
     font-family: Arial, sans-serif;
+  }
 }
+
+
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: gray;
+}
+
+.titlerow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+}
+
+/* Application title styling */
+.app-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+/* Badge and points container */
+.badge-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Styling for the icons */
+.icon, .star {
+    font-size: 24px;
+    color: gold;
+}
+
+/* Points display */
+.points-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Question Box Styling */
+.question-box {
+    background-color: gray;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add Question Button */
+.add-question {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.add-question:hover {
+    background-color: darkblue;
+}
+
+
+
+.start-quiz {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.start-quiz {
+    background-color: darkblue;
+}
+
+.progress-bar {
+    background-color:  #e7e7e7;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 400px;
 }

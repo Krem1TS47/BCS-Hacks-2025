@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { ProgressBar, Label } from 'react-aria-components';
+import React from 'react';
 
 const PointsTracker = () => {
   return (

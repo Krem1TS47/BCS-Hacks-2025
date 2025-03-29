@@ -1,12 +1,25 @@
 import './App.css';
 import QuizCreator from './components/QuizCreator'
+import TestMain from './components/TestMain'
+import React, { useState } from 'react';
+import Header from './components/Header';
 
 export default function App() {
+  const [open, setOpen] = useState(true);
+  const [points, setPoints] = React.useState(5);
   return (
     <div className="min-h-screen bg-gray-100">
-      <QuizCreator />
+      <Header points={points} />
+      {
+        open? (
+          <QuizCreator />
+        ) : (
+          <TestMain />
+        )
+      } 
     </div>
-  );
+    
+  )
 }
 // import Supabase from './Supabase';
 // import Home from './components/Home'

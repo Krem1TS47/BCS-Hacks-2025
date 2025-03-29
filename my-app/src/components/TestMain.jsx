@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import QuizCard from './QuizCard';
 import ProgressBar from './ProgressBar';
 
-const TestMain = () => {
+const TestMain = ({
+  setOpen
+}) => {
   const [currentQuestion, setCurrentQuestion] = useState(4);
   const [totalQuestions, setTotalQuestions] = useState(50);
   
@@ -12,8 +14,7 @@ const TestMain = () => {
   };
   
   const handleGoBack = () => {
-    // Logic to handle going back to previous question
-    console.log('Going back to previous question');
+    setOpen(true);
   };
   
   return (

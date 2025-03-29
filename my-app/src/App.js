@@ -1,25 +1,36 @@
 import logo from './logo.svg';
+import { CiMedal } from "react-icons/ci";
+import { FaStar } from "react-icons/fa";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+function BadgePoints() {
+    return (
+        <div className="header">
+            <div className="left-content">
+
+                <div className="badges">
+                    <CiMedal className="icon" />
+                    <CiMedal className="icon" />
+                    <CiMedal className="icon" />
+                </div>
+            </div>
+            <div className="right-content">
+                <FaStar className="star" />
+                <span className="points">120</span>
+            </div>
+        </div>
+    );
 }
 
-export default App;
+
+
+export default function App() {
+    return (
+        <div className="header">
+            <h1>Application Name</h1>
+            <BadgePoints />
+        </div>
+    );
+}

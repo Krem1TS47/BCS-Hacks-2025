@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import NavigBar from './NavigBar';
 import QuizCard from './QuizCard';
 import ProgressBar from './ProgressBar';
 
 const TestMain = () => {
   const [currentQuestion, setCurrentQuestion] = useState(4);
   const [totalQuestions, setTotalQuestions] = useState(50);
-  const [points, setPoints] = useState(5);
   
   const handleSubmit = () => {
     // Logic to handle question submission
@@ -19,8 +17,7 @@ const TestMain = () => {
   };
   
   return (
-    <div className="font-sans max-w-3xl mx-auto bg-gray-100 min-h-screen">
-      <NavigBar points={points} />
+    <div className="font-sans max-w-3xl mx-auto bg-gray-100 min-h-screen"> 
       <ProgressBar currentQuestion={currentQuestion} totalQuestions={totalQuestions} />
       <QuizCard
         currentQuestion={currentQuestion}

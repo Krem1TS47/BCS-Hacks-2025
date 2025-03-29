@@ -1,25 +1,31 @@
 import './App.css';
-import QuizCreator from './components/QuizCreator'
-import TestMain from './components/TestMain'
-import { useState } from 'react';
-
-
-
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import QuizCreator from './components/QuizCreator';
+import Shop from './pages/Shop'; // Import the Shop page
 
 export default function App() {
-    const [open, setOpen] = useState(false);
-    return(
-        open? (
-            <div className="min-h-screen bg-gray-100">
-            <QuizCreator />
-            <div>
-            </div>
-          </div>
-        ) : (
-            <TestMain />
-        )
-)
+  return (
+    <Router>
+      <div className="min-h-screen bg-gray-100">
+        <QuizCreator />
+        
+        {/* Button to navigate to Shop */}
+        <div className="flex justify-center mt-4">
+          <Link to="/shop">
+            <button className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700">
+              Go to Shop
+            </button>
+          </Link>
+        </div>
 
+        <Routes>
+          <Route path="/shop" element={<Shop />} />
+        </Routes>
+      </div>
+
+      <div></div>
+    </Router>
+  );
 }
 // import Supabase from './Supabase';
 // import Home from './components/Home'

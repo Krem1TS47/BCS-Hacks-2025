@@ -36,12 +36,14 @@ const QuestionForm = ({ onAddQuestion }) => {
       <h2 className="text-lg font-medium mb-4">Add Question</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <input
-            type="text"
+          <input 
+            type="text" 
             value={question}
+            id="question" 
             onChange={(e) => setQuestion(e.target.value)}
-            placeholder="Enter your question"
-            className="w-full p-2 bg-gray-200 rounded-lg"
+            class="bg-gray-200 text-black text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="Enter your question" 
+            required 
           />
         </div>
         
@@ -58,7 +60,7 @@ const QuestionForm = ({ onAddQuestion }) => {
                 value={answer}
                 onChange={(e) => handleAnswerChange(index, e.target.value)}
                 placeholder={`Answer ${index + 1}`}
-                className="flex-grow p-2 bg-gray-200 rounded-lg"
+                className="bg-gray-200 text-black text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               />
               <div 
                 className={`w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer ${
@@ -71,11 +73,7 @@ const QuestionForm = ({ onAddQuestion }) => {
             </div>
           ))}
         </div>
-        
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition"
-        >
+        <button type="button" class='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>
           Add question
         </button>
       </form>

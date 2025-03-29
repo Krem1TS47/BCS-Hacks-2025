@@ -2,6 +2,9 @@ import React from 'react';
 import StatusBar from './StatusBar';
 import QuestionForm from './QuestionForm';
 import PointsTracker from './PointsTracker';
+import { FaStar } from "react-icons/fa";
+import { FaTrophy, FaMedal } from "react-icons/fa6";
+import { GiCutDiamond } from "react-icons/gi";
 
 
 export default function QuizCreator() {
@@ -27,16 +30,20 @@ export default function QuizCreator() {
           <div className="flex items-center gap-2">
             <span className="font-medium">Name</span>
             <div className="flex gap-1">
-              <div className="w-6 h-6 rounded-full bg-green-500"></div>
-              <div className="w-6 h-6 rounded-full bg-green-500"></div>
-              <div className="w-6 h-6 rounded-full bg-green-500"></div>
+              <span className="text-green-500">
+                <FaTrophy size={24}/>
+              </span>
+              <span className="text-yellow-300">
+                <FaMedal size={24}/>
+              </span>
+              <span className="text-red-500">
+                <GiCutDiamond size={24}/>
+              </span>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-yellow-500">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
+            <span className="text-yellow-300">
+              <FaStar size={24}/>
             </span>
             <span className="font-medium">Points {points}</span>
           </div>

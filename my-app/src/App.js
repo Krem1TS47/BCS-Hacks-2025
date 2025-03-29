@@ -1,15 +1,13 @@
 import './App.css';
 import QuizCreator from './components/QuizCreator'
 
-function App() {
+export default function App() {
   return (
     <div className="min-h-screen bg-gray-100">
       <QuizCreator />
-      <div>
-        
-      </div>
     </div>
   );
+}
 // import Supabase from './Supabase';
 // import Home from './components/Home'
 // import logo from './logo.svg';

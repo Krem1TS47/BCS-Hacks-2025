@@ -1,31 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ProgressBar, Label } from 'react-aria-components';
 
 const PointsTracker = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow">
       <h2 className="text-lg font-medium mb-4">Something to encourage</h2>
       
-      <div className="space-y-4 mb-6">
+      <div className="space-y-2 mb-6">
         <div className="space-y-1">
-          <div className="flex items-center justify-between">
-            <div className="w-32 h-4 bg-green-500 rounded-full"></div>
-            <span>10</span>
+          <div className="flex items-center justify-between">          
+            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
+              <div className="h-3 bg-green-500 rounded-full" style={{ width: '50%' }}></div>
+            </div>
+            <span className='pl-4'>10</span>
           </div>
         </div>
         
-        <div className="space-y-1">
-          <div className="flex items-center justify-between">
-            <div className="w-20 h-4 bg-yellow-500 rounded-full"></div>
-            <span>20</span>
+        <div>
+          <div className="flex items-center justify-between">          
+            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
+              <div className="h-3 bg-yellow-300 rounded-full" style={{ width: '25%' }}></div>
+            </div>
+            <span className='pl-4'>20</span>
           </div>
         </div>
-        
-        <div className="space-y-1">
-          <div className="flex items-center justify-between">
-            <div className="w-12 h-4 bg-red-500 rounded-full"></div>
-            <span>50</span>
+
+        <div>
+          <div className="flex items-center justify-between">          
+            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
+              <div className="h-3 bg-red-500 rounded-full" style={{ width: '10%' }}></div>
+            </div>
+            <span className='pl-4'>50</span>
           </div>
         </div>
+
       </div>
       
       <div className="flex justify-end mb-8">
@@ -43,12 +51,12 @@ const PointsTracker = () => {
           <p>Question created: 10</p>
         </div>
         
-        <button className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition">
+        <button type="button" class='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>
           Start quiz
         </button>
       </div>
     </div>
-  );
+  )
 };
 
 export default PointsTracker;

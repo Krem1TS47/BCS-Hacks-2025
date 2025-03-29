@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import QuizQuestion from './components/QuizQuestion';
 import User from './components/User'; 
@@ -43,5 +44,32 @@ const App = () => {
         </div>
     );
 };
+=======
+import logo from './logo.svg';
+import './App.css';
+import Supabase from './Supabase';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+      <Supabase/>
+    </div>
+  );
+}
+>>>>>>> 9e4dab9c8fede6cdbb753453af51990900fdef2d
 
 export default App;

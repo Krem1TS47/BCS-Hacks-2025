@@ -1,27 +1,51 @@
 import logo from './logo.svg';
+import { CiMedal } from "react-icons/ci";
+import { FaStar } from "react-icons/fa";
 import './App.css';
-import Supabase from './Supabase';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Supabase/>
-    </div>
-  );
+
+
+function BadgePoints() {
+    return (
+        <div className="badge-container">
+            <div className="badges">
+                <CiMedal className="icon" />
+                <CiMedal className="icon" />
+                <CiMedal className="icon" />
+            </div>
+            <div className="points-container">
+                <FaStar className="star" />
+                <span className="points">120</span>
+            </div>
+        </div>
+    );
 }
 
-export default App;
+
+
+function AddQuestion() {
+    return (
+        <div className="square">
+            <h2>Add Question</h2>
+            <div className="titlerow">
+            <h2>Enter Possible Answers:</h2>
+            <h2>Select Correct:</h2>
+            </div>
+            <button className="add-question">Add Question</button>
+        </div>
+    );
+}
+
+
+
+export default function App() {
+    return (
+        <>
+        <div className="row">
+            <h2 className="app-title">Application Name</h2>
+            <BadgePoints />
+        </div>
+        <AddQuestion />
+        </>
+    );
+}

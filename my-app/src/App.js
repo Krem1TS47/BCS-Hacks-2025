@@ -1,3 +1,6 @@
+import './App.css';
+import Supabase from './Supabase';
+import Home from './components/Home'
 import logo from './logo.svg';
 import { CiMedal } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
@@ -14,6 +17,7 @@ function BadgePoints() {
             <div className="badge"></div>
           </div>
         </div>
+
         <div className="points-container">
           <FaStar className="star-icon" />
 
@@ -21,6 +25,8 @@ function BadgePoints() {
       </div>
   );
 }
+
+
 
 function AddQuestion() {
   return (
@@ -41,6 +47,21 @@ function ProgressBar() {
       <div className="progress" style={{ width: "50%" }}></div>
     </div>
   );
+    );
+}
+
+function AddQuestion() {
+    return (
+        <div className="square">
+            <Home />
+            <h2>Add Question</h2>
+            <div className="titlerow">
+            <h2>Enter Possible Answers:</h2>
+            <h2>Select Correct:</h2>
+            </div>
+            <button className="add-question">Add Question</button>
+        </div>
+    );
 }
 
 function ProgressSection() {

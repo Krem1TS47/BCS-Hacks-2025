@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 
-const QuizQuestion = ({ question, answer_1, answer_2, answer_3, answer_4, points, correct_index, onAnswerSelected }) => {
-    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+const QuizQuestion = ({ 
+    question, 
+    answer_1, 
+    answer_2, 
+    answer_3, 
+    answer_4, 
+    points, 
+    correct_index, 
+    onAnswerSelected
+}) => {
+    const [selectedOption, setSelectedOption] = useState(null);
     const [isAnswered, setIsAnswered] = useState(false);
 
     const hanldeChangeAnswer = (event) => { 
@@ -32,5 +41,5 @@ const QuizQuestion = ({ question, answer_1, answer_2, answer_3, answer_4, points
     }
 }
 
-export default QuiZQuestion; 
+export default QuizQuestion; 
 

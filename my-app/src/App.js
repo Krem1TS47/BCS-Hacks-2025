@@ -7,16 +7,16 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Shop from './pages/Shop'; // Import the Shop page
 
 export default function App() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [points, setPoints] = React.useState(5);
   return (
     <div className="min-h-screen bg-gray-100">
       <Header points={points} />
       {
         open? (
-          <QuizCreator />
+          <QuizCreator setOpen={setOpen}/>
         ) : (
-          <TestMain />
+          <TestMain setOpen={setOpen} />
         )
       } 
       <Router>

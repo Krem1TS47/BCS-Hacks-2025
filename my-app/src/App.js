@@ -1,12 +1,10 @@
 import './App.css';
-import Supabase from './Supabase';
-import Home from './components/Home'
+import QuizCreator from './components/QuizCreator'
 
 function App() {
   return (
-    <div className="bg-black">
-      <Home />
-      <Supabase/>
+    <div className="min-h-screen bg-gray-100">
+      <QuizCreator />
     </div>
   );
 }

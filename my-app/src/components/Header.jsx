@@ -8,7 +8,7 @@ export default function Header({
   return (
     <div className="flex justify-between items-center p-4 border-b bg-white">
       <div className="flex items-center gap-2">
-        <span className="font-medium">Name</span>
+        <span className="text-6xl">QUIZIO</span>
         <div className="flex gap-1">
           <span className="text-green-500">
             <FaTrophy size={24}/>

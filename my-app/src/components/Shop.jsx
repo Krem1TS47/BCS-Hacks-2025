@@ -30,7 +30,7 @@ const Shop = () => {
   }
 
   const handleBuyNow = async (item) => {
-    if (points > item.price) {
+    if (points >= item.price) {
       const remainingPoints = points - item.price;
 
       // Update the points in the database after purchase
@@ -44,15 +44,16 @@ const Shop = () => {
         return;
       }
 
-      // Update the local state for bought items
+      // Update local state
       setBoughtItems([...boughtItems, item]);
-      setPoints(remainingPoints); // Update points in state
+      setPoints(remainingPoints); // Sync points with Header
       console.log("Item Purchased!");
     } else {
       console.log("Not enough points!");
     }
   };
 
+  
   // Item component inside Shop.jsx
   function Item({ name, price, icon, description, onBuyNow }) {
     return (

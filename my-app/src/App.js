@@ -4,9 +4,9 @@ import fetchPoints from './actions/fetchPoints';
 import fetchQuestions from './actions/fetchQuestions.js';
 import './App.css';
 import Header from './components/Header';
+import Shop from './components/Shop'; // Import the Shop page
 import QuizCreator from './components/QuizCreator';
 import TestMain from './components/TestMain';
-import Shop from './pages/Shop';
 
 export default function App() {
   const [open, setOpen] = useState(true);
@@ -41,6 +41,7 @@ export default function App() {
             points={points} 
             questions={questions} 
             setCurrentIndex={setCurrentIndex}
+            onAddQuestion={getQuestions}
           />
         ) : (
           <TestMain 
@@ -70,6 +71,7 @@ export default function App() {
     </div>
     
   )
+}
 
 
 // export default function App() {
@@ -96,7 +98,6 @@ export default function App() {
 //     </Router>
 //   );
 // >>>>>>> 59b7c9dbb7f50fb5c4d02c8f7356ff72142c24ec
-}
 // import Supabase from './Supabase';
 // import Home from './components/Home'
 // import logo from './logo.svg';

@@ -69,7 +69,6 @@ export default function App() {
               </button>
             </Link>
           </div>
-
           <Routes>
             <Route path="/shop" element={<Shop />} />
           </Routes>

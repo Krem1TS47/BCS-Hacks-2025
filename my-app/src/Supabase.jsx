@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { fetchQuestions } from './actions/fetchQuestions.js'
-import { insertQuestion } from './actions/insertQuestion.js'
+import fetchQuestions from './actions/fetchQuestions.js'
+import insertQuestion from './actions/insertQuestion.js'
+
+
 
 function Supabase() {
   const [questions, setQuestions] = useState([]);

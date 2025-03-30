@@ -5,7 +5,7 @@ const PointsTracker = ({
 }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow">
-      <h2 className="text-lg font-medium mb-4">Something to encourage</h2>
+      <h2 className="text-lg font-medium mb-4">Your Progress!</h2>
       
       <div className="space-y-2 mb-6">
         <div className="space-y-1">
@@ -55,6 +55,11 @@ const PointsTracker = ({
         <button onClick={() => setOpen(false)} type="button" class='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>
           Start quiz
         </button>
+
+        <button onClick={() => setOpen(false)} type="button" class='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>
+          SHOP 
+        </button>
+
       </div>
     </div>
   )

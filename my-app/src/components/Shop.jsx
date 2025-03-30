@@ -11,6 +11,7 @@ import { supabase } from '../lib/Supabase'; // Correct import
 const Shop = () => { 
   const [boughtItems, setBoughtItems] = useState([]); 
   const [points, setPoints] = useState(0);
+  const [shopOpen, setShopOpen] = useState(false);
 
   const items = [ 
     { id: 100, name: 'Bronze', price: 10, description: "Rookie", icon: <CiMedal /> }, 
@@ -53,7 +54,11 @@ const Shop = () => {
     }
   };
 
-  
+  const toggleShop = () => {
+    setShopOpen(!shopOpen);
+  };
+
+
   // Item component inside Shop.jsx
   function Item({ name, price, icon, description, onBuyNow }) {
     return (
@@ -78,21 +83,36 @@ const Shop = () => {
     <div className="p-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Shop</h1>
-        <p className="text-lg font-bold">Points: {points}</p>
+        <div className="flex items-center gap-4">
+            <div className="flex justify-center">
+
+            <button 
+            onClick={toggleShop} 
+            className="px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-500"
+          >
+            {shopOpen ? "Close Shop" : "Open Shop"}
+          </button>
+
+            </div>
+        
+          <p className="text-lg font-bold">Points: {points}</p>
+        </div>
       </div>
 
-      <div className="flex flex-wrap justify-center">
-        {items.map((item) => (
-          <Item
-            key={item.id}
-            name={item.name}
-            price={item.price}
-            icon={item.icon}
-            description={item.description}
-            onBuyNow={() => handleBuyNow(item)}
-          />
-        ))}
-      </div>
+      {shopOpen && (
+        <div className="flex flex-wrap justify-center">
+          {items.map((item) => (
+            <Item
+              key={item.id}
+              name={item.name}
+              price={item.price}
+              icon={item.icon}
+              description={item.description}
+              onBuyNow={() => handleBuyNow(item)}
+            />
+          ))}
+        </div>
+      )}
 
       {boughtItems.length > 0 && (
         <div className="mt-8 border-t border-gray-300 pt-4">

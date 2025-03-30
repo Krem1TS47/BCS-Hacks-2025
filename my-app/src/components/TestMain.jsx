@@ -55,7 +55,7 @@ const TestMain = ({
       <div className="pt-4">
         <div className="flex items-center justify-between">          
           <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
-            <div className="h-3 bg-purple-500 rounded-full" style={{ width: progressBar }}></div>
+            <div className="shadow-lg shadow-purple-500/50 h-3 bg-purple-500 rounded-full" style={{ width: progressBar }}></div>
           </div>
         </div>
       </div>

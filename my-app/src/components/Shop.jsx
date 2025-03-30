@@ -106,7 +106,7 @@ const Shop = () => {
         <p className="text-sm">Price: {price} pts</p>
         <button 
           onClick={onBuyNow} 
-          className="mt-4 px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-500"
+          className="mt-4 shadow-lg shadow-cyan-800/50 w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-800 to-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center"
         >
           Buy Now
         </button>
@@ -118,11 +118,11 @@ const Shop = () => {
     <div className="p-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Shop</h1>
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-lg font-bold">Points: {points}</p>
+        <div className="flex items-center gap-4">
+          <p className="text-lg font-bold whitespace-nowrap">Points: {points}</p>
           <button 
             onClick={toggleShop} 
-            className="px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-500"
+            className="shadow-lg shadow-cyan-800/50 w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-800 to-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center"
           >
             {isShopOpen ? "Close Shop" : "Open Shop"}
           </button>

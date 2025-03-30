@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaMedal } from "react-icons/fa6";
 import { GiDiamondTrophy } from "react-icons/gi";
 import { PiMedalFill } from "react-icons/pi";
@@ -12,6 +13,9 @@ const Shop = () => {
   const [boughtItems, setBoughtItems] = useState([]); 
   const [points, setPoints] = useState(0);
   const [isShopOpen, setIsShopOpen] = useState(false); // Add state for shop visibility
+
+  const [message, setMessage] = useState(null); 
+  const location = useLocation();
 
   const bronzeIcon = (
     <span className='text-amber-700'>
@@ -58,12 +62,17 @@ const Shop = () => {
 
   useEffect(() => {
     getPoints();
-  }, []);
+  }, [location.pathname]); 
 
   async function getPoints() {
     const currentPoints = await fetchPoints(); // Fetch points from database
-    setPoints(currentPoints); // Update state with fetched points
+    setPoints(currentPoints); 
   }
+
+  const showMessage = (text) => {
+    setMessage(text);
+    setTimeout(() => setMessage(null), 3000);
+  };
 
   const handleBuyNow = async (item) => {
     if (points >= item.price) {
@@ -80,12 +89,11 @@ const Shop = () => {
         return;
       }
 
-      // Update local state
       setBoughtItems([...boughtItems, item]);
       setPoints(remainingPoints); // Sync points with Header
-      console.log("Item Purchased!");
+      showMessage(`YOU ARE A ${item.description}!!`);
     } else {
-      console.log("Not enough points!");
+      showMessage("❌ Not enough points!");
     }
   };
 
@@ -114,6 +122,7 @@ const Shop = () => {
     );
   }
 
+  
   return (
     <div className="p-8">
       <div className="flex justify-between items-center mb-8">
@@ -154,6 +163,13 @@ const Shop = () => {
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {/* Display message pop-up */}
+      {message && (
+        <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-4 rounded-md shadow-lg">
+          {message}
         </div>
       )}
     </div>

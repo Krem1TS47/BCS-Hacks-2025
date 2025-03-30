@@ -83,7 +83,7 @@ const Shop = () => {
     <div className="p-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Shop</h1>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between gap-4">
           <p className="text-lg font-bold">Points: {points}</p>
           <button 
             onClick={toggleShop} 

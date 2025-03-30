@@ -4,7 +4,7 @@ import TestMain from './components/TestMain'
 import React, { useState } from 'react';
 import Header from './components/Header';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Shop from './pages/Shop'; // Import the Shop page
+import Shop from './components/Shop'; // Import the Shop page
 
 export default function App() {
   const [open, setOpen] = useState(true);
@@ -38,6 +38,7 @@ export default function App() {
     </div>
     
   )
+}
 
 
 // export default function App() {
@@ -64,7 +65,6 @@ export default function App() {
 //     </Router>
 //   );
 // >>>>>>> 59b7c9dbb7f50fb5c4d02c8f7356ff72142c24ec
-}
 // import Supabase from './Supabase';
 // import Home from './components/Home'
 // import logo from './logo.svg';

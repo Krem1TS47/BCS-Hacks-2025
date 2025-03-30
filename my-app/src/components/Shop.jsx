@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaMedal } from "react-icons/fa6";
 import { GiDiamondTrophy } from "react-icons/gi";
 import { PiMedalFill } from "react-icons/pi";
@@ -12,8 +13,11 @@ const Shop = ({points, getPoints}) => {
   const [boughtItems, setBoughtItems] = useState([]); 
   //const [points, setPoints] = useState(PointsSofar);
   const [isShopOpen, setIsShopOpen] = useState(false); // Add state for shop visibility
- 
-  
+
+
+  const [message, setMessage] = useState(null); 
+  const location = useLocation();
+
   const bronzeIcon = (
     <span className='text-amber-700'>
       {/* <CiMedal size={80}/>  */}
@@ -63,7 +67,11 @@ const Shop = ({points, getPoints}) => {
     getPoints();
   }, []);
 */
- 
+
+  const showMessage = (text) => {
+    setMessage(text);
+    setTimeout(() => setMessage(null), 3000);
+  };
 
   const handleBuyNow = async (item) => {
     if (points >= item.price) {
@@ -80,12 +88,14 @@ const Shop = ({points, getPoints}) => {
         return;
       }
 
-      // Update local state
       setBoughtItems([...boughtItems, item]);
+
       getPoints(remainingPoints); // Sync points with Header
       console.log("Item Purchased!");
+
+
     } else {
-      console.log("Not enough points!");
+      showMessage("❌ Not enough points!");
     }
   };
 
@@ -106,7 +116,7 @@ const Shop = ({points, getPoints}) => {
         <p className="text-sm">Price: {price} pts</p>
         <button 
           onClick={onBuyNow} 
-          className="mt-4 px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-500"
+          className="mt-4 shadow-lg shadow-cyan-800/50 w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-800 to-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center"
         >
           Buy Now
         </button>
@@ -114,15 +124,16 @@ const Shop = ({points, getPoints}) => {
     );
   }
 
+  
   return (
     <div className="p-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Shop</h1>
         <div className="flex items-center gap-4">
-          <p className="text-lg font-bold">Points: {points}</p>
+          <p className="text-lg font-bold whitespace-nowrap">Points: {points}</p>
           <button 
             onClick={toggleShop} 
-            className="px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-500"
+            className="shadow-lg shadow-cyan-800/50 w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-800 to-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center"
           >
             {isShopOpen ? "Close Shop" : "Open Shop"}
           </button>
@@ -154,6 +165,13 @@ const Shop = ({points, getPoints}) => {
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {/* Display message pop-up */}
+      {message && (
+        <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-4 rounded-md shadow-lg">
+          {message}
         </div>
       )}
     </div>

@@ -7,7 +7,6 @@ import Header from './components/Header';
 import QuizCreator from './components/QuizCreator';
 import Shop from './components/Shop'; // Import the Shop page
 import TestMain from './components/TestMain';
-import {supabase} from './Supabase';
 
 export default function App() {
   const [open, setOpen] = useState(true);
@@ -58,11 +57,13 @@ export default function App() {
 
         <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-400">        
           <Routes>
+
             <Route path="/shop" 
                   element={<Shop 
                     points = {points}
                     getPoints = {getPoints}
-                  />} />
+                      />} 
+             />
           </Routes>
         </div>
       </Router>

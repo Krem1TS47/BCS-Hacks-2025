@@ -55,11 +55,10 @@ export default function App() {
       } 
       <Router>
         <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-500">
-          {/* Button to navigate to Shop */}
           <div className="flex justify-center mt-4">
             <Link to="/shop">
               <button className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700">
-                Go to Shop
+                Open Shop
               </button>
             </Link>
           </div>

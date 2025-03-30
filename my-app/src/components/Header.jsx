@@ -1,10 +1,6 @@
 
 import QuizioLogo from "./QuizioLogo";
 
-
-
-
-
 export default function Header({
   points
 }) {
@@ -32,7 +28,7 @@ export default function Header({
 
       </div>
 
-    </div>
+
     </span>
   )
 }

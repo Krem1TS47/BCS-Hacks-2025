@@ -10,22 +10,6 @@ const TestMain = ({
 }) => {
   const progressBar = `${String(Math.round((currentIndex/questions.length)*100))}%`;
   
-  const nextQuestion = () => {
-    if (currentIndex < questions.length) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      // Quiz is finished - handle completion
-      console.log('Quiz completed!');
-      // You might want to show results or navigate somewhere
-    }
-  };
-  
-  const handleCorrect = (selectedOption, isCorrect) => {
-    
-    
-    // Here you could track scores, store answers, etc.
-  };
- 
   const handleGoBack = () => {
     setOpen(true);
   };
@@ -64,9 +48,7 @@ const TestMain = ({
         currentQuestion={currentQuestion}
         currentIndex={currentIndex}
         totalQuestions={questions.length}
-        onCorrect={handleCorrect}
         onGoBack={handleGoBack}
-        nextQuestion={nextQuestion}
         setCurrentIndex={setCurrentIndex}
       />
     </div>

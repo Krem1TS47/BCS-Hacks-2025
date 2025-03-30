@@ -1,4 +1,8 @@
+
 import QuizioLogo from "./QuizioLogo";
+
+
+
 
 
 export default function Header({
@@ -11,6 +15,7 @@ export default function Header({
         <div className="flex gap-1">
           <QuizioLogo/>
         </div>
+
       </span>
       <div className="flex items-center gap-2 text-lg font-medium p-2">
       {/* Star Icon */}
@@ -24,6 +29,9 @@ export default function Header({
       
       {/* Text */}
       <span>Points {points}</span>
+
+      </div>
+
     </div>
     </span>
   )

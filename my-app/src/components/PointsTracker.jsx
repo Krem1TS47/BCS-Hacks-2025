@@ -1,4 +1,5 @@
 import React from 'react';
+import { GiStarGate } from "react-icons/gi";
 
 const PointsTracker = ({
   setOpen,
@@ -54,16 +55,20 @@ const PointsTracker = ({
 
       </div>
       
-      <div className="flex justify-end mb-8">
-        <div className="flex flex-col items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-          </svg>
-          <div className="h-16 border-dashed border-l-2 border-gray-400"></div>
-          <p className="text-xs text-gray-500 max-w-xs text-right">Earn points to get badges</p>
-        </div>
-      </div>
+
+      <div className="flex items-center gap-2 text-lg font-medium p-2 pt-7 pb-9">
+      {/* Star Icon */}
+      <span className="text-yellow-300">
+        <GiStarGate size={35} />
+      </span>
       
+      {/* Text */}
+      <span>Earn Points to Buy Medals!</span>
+    </div>
+
+
+        
+
       <div className="space-y-4">
         <div className="text-center mb-2">
           <p>Questions created: {numberQuestions}</p>

@@ -57,7 +57,13 @@ export default function App() {
 
         <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-400">        
           <Routes>
-            <Route path="/" element={<Shop />} />
+
+            <Route path="/shop" 
+                  element={<Shop 
+                    points = {points}
+                    getPoints = {getPoints}
+                      />} 
+             />
           </Routes>
         </div>
       </Router>

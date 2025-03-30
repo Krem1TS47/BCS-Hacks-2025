@@ -9,10 +9,11 @@ import fetchPoints from '../actions/fetchPoints'; // Keep this for fetching poin
 import { supabase } from '../lib/Supabase'; // Correct import
 
 
-const Shop = () => { 
+const Shop = ({points, getPoints}) => { 
   const [boughtItems, setBoughtItems] = useState([]); 
-  const [points, setPoints] = useState(0);
+  //const [points, setPoints] = useState(PointsSofar);
   const [isShopOpen, setIsShopOpen] = useState(false); // Add state for shop visibility
+
 
   const [message, setMessage] = useState(null); 
   const location = useLocation();
@@ -58,16 +59,14 @@ const Shop = () => {
         { id: 300, name: 'Gold', price: 30, description: "Rising Star", icon: goldIcon}, 
         { id: 400, name: 'Emerald', price: 40, description: "Icon", icon: emeraldIcon},
         { id: 500, name: 'Diamond', price: 50, description: "GOAT", icon: diamondIcon} 
+        
   ]; 
 
+  /*
   useEffect(() => {
     getPoints();
-  }, [location.pathname]); 
-
-  async function getPoints() {
-    const currentPoints = await fetchPoints(); // Fetch points from database
-    setPoints(currentPoints); 
-  }
+  }, []);
+*/
 
   const showMessage = (text) => {
     setMessage(text);
@@ -90,8 +89,11 @@ const Shop = () => {
       }
 
       setBoughtItems([...boughtItems, item]);
-      setPoints(remainingPoints); // Sync points with Header
-      showMessage(`YOU ARE A ${item.description}!!`);
+
+      getPoints(remainingPoints); // Sync points with Header
+      console.log("Item Purchased!");
+
+
     } else {
       showMessage("❌ Not enough points!");
     }

@@ -74,8 +74,12 @@ const Shop = ({
       setBoughtItems([...boughtItems, item]);
 
       getPoints(remainingPoints); // Sync points with Header
-      console.log("Item Purchased!");
-
+      if (item.id === 500) { 
+        showMessage("YOU ARE THE GOAT 🐐 !!!")
+      }
+      else { 
+        showMessage(`YOU ARE A ${item.description} !!!`);
+    }
 
     } else {
       showMessage("❌ Not enough points!");

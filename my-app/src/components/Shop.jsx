@@ -21,11 +21,13 @@ const Shop = () => {
         setBoughtItems([...boughtItems, item]);
     };
 
+
+
     // Item component inside Shop.jsx
     function Item({ name, price, icon, description, onBuyNow }) {
       return (
         <div className="border border-gray-300 p-4 m-4 rounded-lg w-48 text-center bg-gray-50">
-          <div className="text-4xl mb-4">
+          <div className="flex justify-center items-center text-7xl mb-4">
             {icon} 
           </div>
           <h2 className="text-lg font-bold">{name}</h2>

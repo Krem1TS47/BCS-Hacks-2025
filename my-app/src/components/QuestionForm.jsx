@@ -24,7 +24,7 @@ const QuestionForm = ({
     const answer1 = answer1Ref.current.value;
     const answer2 = answer2Ref.current.value;
     const answer3 = answer3Ref.current.value;
-    const answer4 = answer4Ref.current.value;
+    const answer4 = answer4Ref.current.value
     
     // Validate inputs
     if (!question || !answer1 || !answer2 || !answer3 || !answer4 || correctAnswerIndex === null) {

@@ -1,4 +1,3 @@
-import { FaStar } from "react-icons/fa";
 import QuizioLogo from "./QuizioLogo"; //
 
 
@@ -12,12 +11,6 @@ export default function Header({
         <div className="flex gap-1">
           <QuizioLogo/>
         </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-yellow-300">
-          <FaStar size={24}/>
-        </span>
-        <span className="font-medium">Points {points}</span>
       </div>
     </div>
   )

@@ -23,7 +23,7 @@ const PointsTracker = ({
 
   return (
     <div className="bg-white p-6 rounded-lg shadow">
-      <h2 className="text-lg font-medium mb-4">Your Progress!</h2>
+      <h2 className="text-lg font-medium mb-4">Your Point Progress!</h2>
       <div className="space-y-2 mb-6">
         <div className="space-y-1">
           <div className="flex items-center justify-between">          

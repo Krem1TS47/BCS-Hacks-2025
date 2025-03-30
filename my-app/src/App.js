@@ -4,8 +4,8 @@ import fetchPoints from './actions/fetchPoints';
 import fetchQuestions from './actions/fetchQuestions.js';
 import './App.css';
 import Header from './components/Header';
-import Shop from './components/Shop'; // Import the Shop page
 import QuizCreator from './components/QuizCreator';
+import Shop from './components/Shop'; // Import the Shop page
 import TestMain from './components/TestMain';
 
 export default function App() {
@@ -45,6 +45,7 @@ export default function App() {
           />
         ) : (
           <TestMain 
+            getPoints={getPoints}
             setOpen={setOpen} 
             questions={questions}
             currentIndex={currentIndex}

@@ -2,27 +2,56 @@ import React from 'react';
 import QuizCard from './QuizCard';
 
 const TestMain = ({
+  getPoints,
   setOpen,
   questions,
   currentIndex,
   setCurrentIndex
 }) => {
-  const progressBar = `${String(currentIndex/questions.length*100)}%`;
-
-  function nextQuestion() {
-    setCurrentIndex(currentIndex + 1);
-  }
-  const handleSubmit = () => {
-    // Logic to handle question submission
-    console.log('Question submitted');
+  const progressBar = `${String(Math.round((currentIndex/questions.length)*100))}%`;
+  
+  const nextQuestion = () => {
+    if (currentIndex < questions.length) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      // Quiz is finished - handle completion
+      console.log('Quiz completed!');
+      // You might want to show results or navigate somewhere
+    }
   };
   
+  const handleCorrect = (selectedOption, isCorrect) => {
+    
+    
+    // Here you could track scores, store answers, etc.
+  };
+ 
   const handleGoBack = () => {
     setOpen(true);
   };
   
+  // Get current question safely (using index - 1)
+  const currentQuestion = questions[currentIndex - 1];
+  console.log('currentQuestion: ' + JSON.stringify(currentQuestion, null, 2));
+  
+  // If we've gone past the last question, show completion
+  if (currentIndex > questions.length) {
+    return (
+      <div className="font-sans max-w-3xl mx-auto bg-white rounded-lg m-5 p-6 shadow text-center">
+        <h2 className="text-2xl font-bold mb-4">Quiz Completed!</h2>
+        <p className="mb-6">You've answered all the questions.</p>
+        <button
+          className="bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full px-4 py-2 cursor-pointer"
+          onClick={handleGoBack}
+        >
+          Back to Start
+        </button>
+      </div>
+    );
+  }
+ 
   return (
-    <div className="font-sans max-w-3xl mx-auto"> 
+    <div className="font-sans max-w-3xl mx-auto">
       <div className="pt-4">
         <div className="flex items-center justify-between">          
           <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
@@ -31,10 +60,14 @@ const TestMain = ({
         </div>
       </div>
       <QuizCard
-        currentQuestion={currentIndex}
+        getPoints={getPoints}
+        currentQuestion={currentQuestion}
+        currentIndex={currentIndex}
         totalQuestions={questions.length}
-        onSubmit={handleSubmit}
+        onCorrect={handleCorrect}
         onGoBack={handleGoBack}
+        nextQuestion={nextQuestion}
+        setCurrentIndex={setCurrentIndex}
       />
     </div>
   );

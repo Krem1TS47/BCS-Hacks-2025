@@ -41,7 +41,7 @@ const TestMain = ({
         <h2 className="text-2xl font-bold mb-4">Quiz Completed!</h2>
         <p className="mb-6">You've answered all the questions.</p>
         <button
-          className="bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full px-4 py-2 cursor-pointer"
+          className="shadow-lg shadow-blue-500/50 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full px-4 py-2 cursor-pointer"
           onClick={handleGoBack}
         >
           Back to Start

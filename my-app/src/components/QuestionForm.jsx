@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import  insertQuestion  from '../actions/insertQuestion';
 
 const QuestionForm = ({ onAddQuestion }) => {
   const [question, setQuestion] = useState('');
@@ -11,7 +12,38 @@ const QuestionForm = ({ onAddQuestion }) => {
     setAnswers(newAnswers);
   };
 
+    const [text, setText] = useState("");
+    const [text2, setText2] = useState("");
+    const [text3, setText3] = useState("");
+    const [text4, setText4] = useState("");
   const handleSubmit = (e) => {
+
+    <div>
+    <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+    <input type="text" value={text2} onChange={(e) => setText2(e.target.value)} />
+    <input type="text" value={text3} onChange={(e) => setText3(e.target.value)} />
+    <input type="text" value={text4} onChange={(e) => setText4(e.target.value)} />
+    </div>
+
+    const data= {
+        answer_1: text,
+        answer_2: text2,
+        answer_3: text3,
+        answer_4: text4,
+        index: correctAnswerIndex
+    }
+
+
+
+    React.UseEffect(() => {
+        getQuestion();
+    })
+    async function getQuestion() {
+        await insertQuestion(data);
+    }
+    
+
+
     e.preventDefault();
     
     if (!question || answers.some(answer => !answer) || correctAnswerIndex === null) {
@@ -27,7 +59,7 @@ const QuestionForm = ({ onAddQuestion }) => {
     
     // Reset form
     setQuestion('');
-    setAnswers(['', '', '', '']);
+    setAnswers([text, text2, text3, text4]);
     setCorrectAnswerIndex(null);
   };
 

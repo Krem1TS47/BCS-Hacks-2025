@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import  insertQuestion  from '../actions/insertQuestion';
 
 const QuestionForm = ({ onAddQuestion }) => {
   const [question, setQuestion] = useState('');
@@ -34,7 +35,7 @@ const QuestionForm = ({ onAddQuestion }) => {
 
 
 
-    React.useEffect(() => {
+    React.UseEffect(() => {
         getQuestion();
     })
     async function getQuestion() {

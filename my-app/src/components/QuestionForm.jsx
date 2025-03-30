@@ -24,7 +24,7 @@ const QuestionForm = ({
     const answer1 = answer1Ref.current.value;
     const answer2 = answer2Ref.current.value;
     const answer3 = answer3Ref.current.value;
-    const answer4 = answer4Ref.current.value;
+    const answer4 = answer4Ref.current.value
     
     // Validate inputs
     if (!question || !answer1 || !answer2 || !answer3 || !answer4 || correctAnswerIndex === null) {
@@ -171,7 +171,7 @@ const QuestionForm = ({
         <button 
           type="button" 
           onClick={onSubmit} 
-          className="w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2"
+          className="w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center"
         >
           Add question
         </button>

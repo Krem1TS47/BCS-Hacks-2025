@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import QuizCard from './QuizCard';
 
 const TestMain = ({
@@ -8,10 +8,15 @@ const TestMain = ({
   currentIndex,
   setCurrentIndex
 }) => {
+
+  const [score, setScore] = useState(0);
+  const [answeredQuestions, setAnsweredQuestions] = useState([]);
+
   const progressBar = `${String(Math.round((currentIndex/questions.length)*100))}%`;
+
   
   const nextQuestion = () => {
-    if (currentIndex < questions.length) {
+    if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
       // Quiz is finished - handle completion
@@ -19,11 +24,13 @@ const TestMain = ({
       // You might want to show results or navigate somewhere
     }
   };
-  
-  const handleCorrect = (selectedOption, isCorrect) => {
-    
-    
-    // Here you could track scores, store answers, etc.
+
+
+  const handleScoreUpdate = (isCorrect) => {
+    if (isCorrect && !answeredQuestions.includes(currentIndex)) {
+      setScore(prevScore => prevScore + 1);
+      setAnsweredQuestions(prev => [...prev, currentIndex]);
+    }
   };
  
   const handleGoBack = () => {
@@ -40,6 +47,7 @@ const TestMain = ({
       <div className="font-sans max-w-3xl mx-auto bg-white rounded-lg m-5 p-6 shadow text-center">
         <h2 className="text-2xl font-bold mb-4">Quiz Completed!</h2>
         <p className="mb-6">You've answered all the questions.</p>
+        <p className="mb-5"> Quiz Score: {score} / {questions.length} </p> 
         <button
           className="shadow-lg shadow-blue-500/50 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full px-4 py-2 cursor-pointer"
           onClick={handleGoBack}
@@ -64,10 +72,11 @@ const TestMain = ({
         currentQuestion={currentQuestion}
         currentIndex={currentIndex}
         totalQuestions={questions.length}
-        onCorrect={handleCorrect}
+        // onCorrect={handleCorrect}
         onGoBack={handleGoBack}
         nextQuestion={nextQuestion}
         setCurrentIndex={setCurrentIndex}
+        onScoreUpdate={handleScoreUpdate}
       />
     </div>
   );

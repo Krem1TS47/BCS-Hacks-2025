@@ -54,6 +54,7 @@ export default function App() {
         )
       } 
       <Router>
+
         <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-400">
           {/* Button to navigate to Shop */}
           <div className="flex justify-center mt-4">

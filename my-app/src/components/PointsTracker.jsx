@@ -29,7 +29,7 @@ const PointsTracker = ({
         <div className="space-y-1">
           <div className="flex items-center justify-between">          
             <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
-              <div className="h-3 bg-green-500 rounded-full" style={{ width: greenBar }}></div>
+              <div className="shadow-lg shadow-green-500/50  h-3 bg-green-500 rounded-full" style={{ width: greenBar }}></div>
             </div>
             <span className='pl-4'>10</span>
           </div>
@@ -38,7 +38,7 @@ const PointsTracker = ({
         <div>
           <div className="flex items-center justify-between">          
             <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
-              <div className="h-3 bg-yellow-300 rounded-full" style={{ width: yellowBar }}></div>
+              <div className="shadow-lg shadow-yellow-500/50 h-3 bg-yellow-300 rounded-full" style={{ width: yellowBar }}></div>
             </div>
             <span className='pl-4'>20</span>
           </div>
@@ -47,7 +47,7 @@ const PointsTracker = ({
         <div>
           <div className="flex items-center justify-between">          
             <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">
-              <div className="h-3 bg-red-500 rounded-full" style={{ width: redBar }}></div>
+              <div className="shadow-lg shadow-red-500/50 h-3 bg-red-500 rounded-full" style={{ width: redBar }}></div>
             </div>
             <span className='pl-4'>50</span>
           </div>
@@ -71,13 +71,13 @@ const PointsTracker = ({
 
       <div className="space-y-4">
         <div className="text-center mb-2">
-          <p>Questions created: {numberQuestions}</p>
+          <p className='pt-8'>Questions created: {numberQuestions}</p>
         </div>
         
         <button 
           onClick={() => startQuiz()} 
           type="button" 
-          className='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'
+          className='shadow-lg shadow-cyan-500/50 w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'
         >
           Start quiz
         </button>

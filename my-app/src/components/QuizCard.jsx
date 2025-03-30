@@ -63,7 +63,7 @@ const QuizCard = ({
   return (
     <div className="bg-white rounded-lg m-5 p-6 shadow">
       <button
-        className="bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full px-4 py-2 cursor-pointer"
+        className="shadow-lg shadow-blue-500/50 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full px-4 py-2 cursor-pointer"
         onClick={onGoBack}
       >
         Go back
@@ -90,7 +90,7 @@ const QuizCard = ({
      
       {!isSubmitted ? (
         <button
-          className="bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full py-3 px-6 text-base cursor-pointer w-full mt-6 disabled:opacity-50"
+          className="shadow-lg shadow-blue-500/50 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full py-3 px-6 text-base cursor-pointer w-full mt-6 disabled:opacity-50"
           onClick={handleSubmit}
           disabled={selectedOption === null}
         >
@@ -102,7 +102,7 @@ const QuizCard = ({
             {isCorrect ? 'Correct!' : 'Incorrect. The correct answer was option ' + (correct_index + 1)}
           </div>
           <button
-            className="bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full py-3 px-6 text-base cursor-pointer w-full"
+            className="shadow-lg shadow-blue-500/50 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full py-3 px-6 text-base cursor-pointer w-full"
             onClick={handleNext}
           >
             Next question

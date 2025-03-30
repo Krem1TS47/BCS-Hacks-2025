@@ -2,7 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import QuestionText from './QuestionText';
 import OptionsList from './OptionList';
+
+import incrementPoints from '../actions/incrementPoints'
+import Timer from '../actions/Timer';
+
 import incrementPoints from '../actions/incrementPoints';
+
+
 
 const QuizCard = ({
   getPoints,
@@ -16,6 +22,10 @@ const QuizCard = ({
   const [selectedOption, setSelectedOption] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(null);
+
+  const [resetTimer, setResetTimer] = useState(false);
+ 
+
   const [randomizedOptions, setRandomizedOptions] = useState([]);
   const [randomToOriginalMap, setRandomToOriginalMap] = useState([]);
   
@@ -48,6 +58,7 @@ const QuizCard = ({
     setIsCorrect(null);
   }, [currentQuestion]);
 
+
   const handleOptionSelect = (optionIndex) => {
     if (!isSubmitted) {
       setSelectedOption(optionIndex);
@@ -78,6 +89,10 @@ const QuizCard = ({
 
     setIsCorrect(correct);
     setIsSubmitted(true);
+
+
+    //setResetTimer((prev) => !prev);
+
     
     // Update the score in the parent component
     if (onScoreUpdate) {
@@ -91,6 +106,9 @@ const QuizCard = ({
     setIsSubmitted(false);
     setIsCorrect(null);
     setCurrentIndex(currentIndex + 1);
+    setResetTimer((prev) => !prev);
+
+
   };
 
   // Find which randomized option corresponds to the correct answer
@@ -100,13 +118,18 @@ const QuizCard = ({
  
   return (
     <div className="bg-white rounded-lg m-5 p-6 shadow">
-      <button
-        className="shadow-lg shadow-blue-500/50 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full px-4 py-2 cursor-pointer"
-        onClick={onGoBack}
-      >
-        Go back
-      </button>
-     
+
+      <div className = "flex justify-between items-center p-4">
+        <button
+          className="shadow-lg shadow-blue-500/50 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800 text-white border-none rounded-full px-4 py-2 cursor-pointer"
+          onClick={onGoBack}
+        >
+          Go back
+        </button>
+        <div className="text-right font-bold text-gray-700">
+          <tr> Time left: <Timer reset={resetTimer} /> </tr>
+        </div>
+      </div>
       <div className="my-8">
         <h2 className="text-center text-xl font-bold mb-6">Question {currentIndex}/{totalQuestions}</h2>
        

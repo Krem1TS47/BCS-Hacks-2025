@@ -7,27 +7,40 @@ import { GiDiamondTrophy } from "react-icons/gi";
 import fetchPoints from '../actions/fetchPoints'; // Keep this for fetching points
 import insertPoints from '../actions/insertPoints'; // Add function to insert/update points
 import { supabase } from '../lib/Supabase'; // Correct import
+import { useLocation } from 'react-router-dom';
+
 
 const Shop = () => { 
   const [boughtItems, setBoughtItems] = useState([]); 
   const [points, setPoints] = useState(0);
 
+  const [message, setMessage] = useState(null);
+  const location = useLocation(); 
+
   const items = [ 
-    { id: 100, name: 'Bronze', price: 10, description: "Rookie", icon: <CiMedal /> }, 
-    { id: 200, name: 'Silver', price: 20, description: "Novice", icon: <FaMedal />}, 
-    { id: 300, name: 'Gold', price: 30, description: "Rising Star", icon: <RiMedal2Line />}, 
-    { id: 400, name: 'Emerald', price: 40, description: "Icon", icon: <IoTrophyOutline />},
+    { id: 100, name: 'Bronze', price: 10, description: "ROOKIE", icon: <CiMedal /> }, 
+    { id: 200, name: 'Silver', price: 20, description: "NOVICE", icon: <FaMedal />}, 
+    { id: 300, name: 'Gold', price: 30, description: "RISING STAR", icon: <RiMedal2Line />}, 
+    { id: 400, name: 'Emerald', price: 40, description: "ICON", icon: <IoTrophyOutline />},
     { id: 500, name: 'Diamond', price: 50, description: "GOAT", icon: <GiDiamondTrophy />} 
   ]; 
 
   useEffect(() => {
     getPoints();
-  }, []);
+  }, [location.pathname]); 
 
   async function getPoints() {
     const currentPoints = await fetchPoints(); // Fetch points from database
     setPoints(currentPoints); // Update state with fetched points
   }
+
+  const showMessage = (message, type) => {
+    if (type === 'success') {
+      alert(message); // You can customize this to a modal or something more sophisticated
+    } else {
+      alert(message); // For error messages as well
+    }
+  };
 
   const handleBuyNow = async (item) => {
     if (points >= item.price) {
@@ -47,9 +60,9 @@ const Shop = () => {
       // Update local state
       setBoughtItems([...boughtItems, item]);
       setPoints(remainingPoints); // Sync points with Header
-      console.log("Item Purchased!");
+      showMessage(`YOU ARE A ${item.description} !!!`);
     } else {
-      console.log("Not enough points!");
+      showMessage("Not enough points! Go do some more quizzes!");
     }
   };
 

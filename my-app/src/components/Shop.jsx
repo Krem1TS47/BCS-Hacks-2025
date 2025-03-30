@@ -4,22 +4,50 @@ import { FaMedal } from "react-icons/fa6";
 import { RiMedal2Line } from "react-icons/ri";
 import { IoTrophyOutline } from "react-icons/io5";
 import { GiDiamondTrophy } from "react-icons/gi";
+import fetchPoints from '../actions/fetchPoints';
+
 
 const Shop = () => { 
     const [boughtItems, setBoughtItems] = useState([]); 
       
 
     const items = [ 
-        { id: 100, name: 'Bronze', price: 1, description: "You are a rookie!", icon: <CiMedal /> }, 
-        { id: 200, name: 'Silver', price: 2, description: "You are a rising star!", icon: <FaMedal />}, 
-        { id: 300, name: 'Gold', price: 3, description: "You are an icon!", icon: <RiMedal2Line />}, 
-        { id: 400, name: 'Emerald', price: 4, description: "Reaching the GOAT status", icon: <IoTrophyOutline />},
-        { id: 500, name: 'Diamond', price: 5, description: "GOAT", icon: <GiDiamondTrophy />} 
+        { id: 100, name: 'Bronze', price: 10, description: "Rookie", icon: <CiMedal /> }, 
+        { id: 200, name: 'Silver', price: 20, description: "Novice", icon: <FaMedal />}, 
+        { id: 300, name: 'Gold', price: 30, description: "Rising Star", icon: <RiMedal2Line />}, 
+        { id: 400, name: 'Emerald', price: 40, description: "Icon", icon: <IoTrophyOutline />},
+        { id: 500, name: 'Diamond', price: 50, description: "GOAT", icon: <GiDiamondTrophy />} 
     ]; 
 
-    const handleBuyNow = (item) => {
-        setBoughtItems([...boughtItems, item]);
-    };
+    const handleBuyNow = async (item) => {
+
+        // const currPoints = await fetchPoints(); 
+
+        const currPoints = 25; 
+
+        if (currPoints > item.price) { 
+
+            const remaining = currPoints - item.price; 
+
+
+            // const {error} = await Supabase 
+            //     .from('points')
+            //     .update({ counter: remaining })
+            //     .eq('id', 1); 
+
+            // if (error) { 
+            //     console.log("ERROR"); 
+            //     return; 
+            // }
+            
+            setBoughtItems([...boughtItems, item]);
+            console.log("Item Purchased!"); 
+        }
+        else { 
+            console.log("Not enough points!"); 
+        }
+
+    }
 
 
 
@@ -32,7 +60,7 @@ const Shop = () => {
           </div>
           <h2 className="text-lg font-bold">{name}</h2>
           <h3 className="text-lg font-sans">{description}</h3> 
-          <p className="text-sm">Price: ${price}</p>
+          <p className="text-sm">Price: {price} pts</p>
           <button 
             onClick={onBuyNow} 
             className="mt-4 px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-500"
@@ -66,11 +94,11 @@ const Shop = () => {
           {boughtItems.length > 0 && (
             <div className="mt-8 border-t border-gray-300 pt-4">
               <h2 className="text-2xl font-semibold">Purchased Items</h2>
-              <ul>
+              <ul className = "flex flex-wrap justify-start space-x-4 gap-4"> 
                 {boughtItems.map((item, index) => (
-                  <li key={index} className="mt-2 text-lg">
-                    {item.name} - ${item.price}
-                  </li>
+                  <h1 key={index} className="mt-2 text-9xl font-bold flex-shrink-0 w-1/4">
+                    {item.icon}
+                  </h1>
                 ))}
               </ul>
             </div>

@@ -23,7 +23,7 @@ const PointsTracker = ({
 
   return (
     <div className="bg-white p-6 rounded-lg shadow">
-      <h2 className="text-lg font-medium mb-4">Something to encourage</h2>
+      <h2 className="text-lg font-medium mb-4">Goal of the week</h2>
       
       <div className="space-y-2 mb-6">
         <div className="space-y-1">

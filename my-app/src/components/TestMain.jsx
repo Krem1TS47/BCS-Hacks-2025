@@ -22,7 +22,7 @@ const TestMain = ({
   };
   
   return (
-    <div className="font-sans max-w-3xl mx-auto bg-gray-100 min-h-screen"> 
+    <div className="font-sans max-w-3xl mx-auto"> 
       <div className="pt-4">
         <div className="flex items-center justify-between">          
           <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-200">

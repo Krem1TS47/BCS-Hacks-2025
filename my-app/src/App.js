@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import fetchQuestions from './actions/fetchQuestions.js';
 import fetchPoints from './actions/fetchPoints';
+import fetchQuestions from './actions/fetchQuestions.js';
 import './App.css';
 import Header from './components/Header';
 import QuizCreator from './components/QuizCreator';
@@ -17,7 +17,7 @@ export default function App() {
   React.useEffect(() => {
     getQuestions();
     getPoints();
-  });
+  }, []);
 
   async function getQuestions() {
     const questionData = await fetchQuestions();
@@ -52,7 +52,7 @@ export default function App() {
         )
       } 
       <Router>
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-500">
           {/* Button to navigate to Shop */}
           <div className="flex justify-center mt-4">
             <Link to="/shop">

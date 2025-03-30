@@ -1,6 +1,10 @@
 import React from 'react';
 
-const OptionsList = ({ options, selectedOption, onOptionSelect }) => {
+const OptionsList = ({ 
+  options, 
+  selectedOption, 
+  onOptionSelect
+}) => {
   return (
     <div className="flex flex-col gap-4 mt-6">
       {options.map((option, index) => (

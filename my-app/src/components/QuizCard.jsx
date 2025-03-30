@@ -10,7 +10,8 @@ const QuizCard = ({
   currentIndex,
   totalQuestions,
   onGoBack,
-  setCurrentIndex
+  setCurrentIndex,
+  onScoreUpdate
 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -60,6 +61,7 @@ const QuizCard = ({
   
   const { question, correct_index } = currentQuestion;
   
+  
   const handleSubmit = async () => {
     if (selectedOption === null) {
       return; 
@@ -76,6 +78,11 @@ const QuizCard = ({
 
     setIsCorrect(correct);
     setIsSubmitted(true);
+    
+    // Update the score in the parent component
+    if (onScoreUpdate) {
+      onScoreUpdate(correct);
+    }
   };
   
   // Reset the component state for the next question

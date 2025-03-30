@@ -10,7 +10,6 @@ import { GiStaryu } from "react-icons/gi";
 import fetchPoints from '../actions/fetchPoints'; // Keep this for fetching points
 import insertPoints from '../actions/insertPoints'; // Add function to insert/update points
 import { supabase } from '../lib/Supabase'; // Correct import
-import { useLocation } from 'react-router-dom';
 
 
 const Shop = () => { 
@@ -62,7 +61,7 @@ const Shop = () => {
 
   useEffect(() => {
     getPoints();
-  }, [location.pathname]); 
+  }, []); 
 
   async function getPoints() {
     const currentPoints = await fetchPoints(); // Fetch points from database

@@ -1,6 +1,6 @@
 import { FaStar } from "react-icons/fa";
-import { FaTrophy, FaMedal } from "react-icons/fa6";
-import { GiCutDiamond } from "react-icons/gi";
+import QuizioLogo from "./QuizioLogo"; //
+
 
 export default function Header({
   points
@@ -10,15 +10,7 @@ export default function Header({
       <div className="flex items-center gap-2">
         <span className="text-6xl">QUIZIO</span>
         <div className="flex gap-1">
-          <span className="text-green-500">
-            <FaTrophy size={24}/>
-          </span>
-          <span className="text-yellow-300">
-            <FaMedal size={24}/>
-          </span>
-          <span className="text-red-500">
-            <GiCutDiamond size={24}/>
-          </span>
+          <QuizioLogo/>
         </div>
       </div>
       <div className="flex items-center gap-2">

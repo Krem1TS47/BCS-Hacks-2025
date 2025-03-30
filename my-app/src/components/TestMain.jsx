@@ -72,9 +72,7 @@ const TestMain = ({
         currentQuestion={currentQuestion}
         currentIndex={currentIndex}
         totalQuestions={questions.length}
-        // onCorrect={handleCorrect}
         onGoBack={handleGoBack}
-        nextQuestion={nextQuestion}
         setCurrentIndex={setCurrentIndex}
         onScoreUpdate={handleScoreUpdate}
       />

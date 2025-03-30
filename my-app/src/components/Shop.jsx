@@ -1,43 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import { FaMedal } from "react-icons/fa6";
 import { GiDiamondTrophy } from "react-icons/gi";
 import { PiMedalFill } from "react-icons/pi";
 import { BsTrophyFill } from "react-icons/bs";
 import { GiStaryu } from "react-icons/gi";
-import fetchPoints from '../actions/fetchPoints'; // Keep this for fetching points
 import { supabase } from '../lib/Supabase'; // Correct import
 
 
-const Shop = () => { 
+const Shop = ({
+  points, 
+  getPoints
+}) => { 
   const [boughtItems, setBoughtItems] = useState([]); 
-  const [points, setPoints] = useState(0);
   const [isShopOpen, setIsShopOpen] = useState(false); // Add state for shop visibility
 
+
   const [message, setMessage] = useState(null); 
-  const location = useLocation();
 
   const bronzeIcon = (
     <span className='text-amber-700'>
-      {/* <CiMedal size={80}/>  */}
       <FaMedal size={68} className='pt-2'/>
     </span>
   )
   const silverIcon = (
     <span className='text-slate-400'>
-      {/* <FaMedal size={66} className='pt-2'/> */}
       <PiMedalFill />
     </span>
   )
   const goldIcon = (
     <span className='text-yellow-400'>
-      {/* <RiMedal2Line /> */}
       <BsTrophyFill size={70} className='pt-2'/>
     </span>
   )
   const emeraldIcon = (
     <span className='text-emerald-500'>
-      {/* <BsTrophyFill size={60}/> */}
       <GiStaryu />
     </span>
   )
@@ -47,27 +43,13 @@ const Shop = () => {
     </span>
   )
     
-  const items = [ 
-    // { id: 100, name: 'Bronze', price: 10, description: "Rookie", icon: <CiMedal size={80}/> }, 
-    // { id: 200, name: 'Silver', price: 20, description: "Novice", icon: <FaMedal size={66} className='pt-2'/>}, 
-    // { id: 300, name: 'Gold', price: 30, description: "Rising Star", icon: <RiMedal2Line />}, 
-    // { id: 400, name: 'Emerald', price: 40, description: "Icon", icon: <IoTrophyOutline />},
-    // { id: 500, name: 'Diamond', price: 50, description: "GOAT", icon: <GiDiamondTrophy />} 
-        { id: 100, name: 'Bronze', price: 10, description: "Rookie", icon: bronzeIcon }, 
-        { id: 200, name: 'Silver', price: 20, description: "Novice", icon: silverIcon }, 
-        { id: 300, name: 'Gold', price: 30, description: "Rising Star", icon: goldIcon}, 
-        { id: 400, name: 'Emerald', price: 40, description: "Icon", icon: emeraldIcon},
-        { id: 500, name: 'Diamond', price: 50, description: "GOAT", icon: diamondIcon} 
+  const items = [    
+    { id: 100, name: 'Bronze', price: 10, description: "Rookie", icon: bronzeIcon }, 
+    { id: 200, name: 'Silver', price: 20, description: "Novice", icon: silverIcon }, 
+    { id: 300, name: 'Gold', price: 30, description: "Rising Star", icon: goldIcon}, 
+    { id: 400, name: 'Emerald', price: 40, description: "Icon", icon: emeraldIcon},
+    { id: 500, name: 'Diamond', price: 50, description: "GOAT", icon: diamondIcon} 
   ]; 
-
-  useEffect(() => {
-    getPoints();
-  }, [location.pathname]); 
-
-  async function getPoints() {
-    const currentPoints = await fetchPoints(); // Fetch points from database
-    setPoints(currentPoints); 
-  }
 
   const showMessage = (text) => {
     setMessage(text);
@@ -90,8 +72,11 @@ const Shop = () => {
       }
 
       setBoughtItems([...boughtItems, item]);
-      setPoints(remainingPoints); // Sync points with Header
-      showMessage(`YOU ARE A ${item.description}!!`);
+
+      getPoints(remainingPoints); // Sync points with Header
+      console.log("Item Purchased!");
+
+
     } else {
       showMessage("❌ Not enough points!");
     }
@@ -121,7 +106,6 @@ const Shop = () => {
       </div>
     );
   }
-
   
   return (
     <div className="p-8">

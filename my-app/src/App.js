@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import fetchPoints from './actions/fetchPoints';
 import fetchQuestions from './actions/fetchQuestions.js';
 import './App.css';
 import Header from './components/Header';
 import QuizCreator from './components/QuizCreator';
-import Shop from './components/Shop'; // Import the Shop page
+import Shop from './components/Shop'; 
 import TestMain from './components/TestMain';
 
 export default function App() {
@@ -52,15 +51,13 @@ export default function App() {
             setCurrentIndex={setCurrentIndex}  
           />
         )
-      } 
-      <Router>
-
-        <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-400">        
-          <Routes>
-            <Route path="/" element={<Shop />} />
-          </Routes>
-        </div>
-      </Router>
+      }       
+      <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-400">        
+        <Shop 
+          points={points}
+          getPoints={getPoints}
+        />
+      </div>
     </div>
     
   )

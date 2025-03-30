@@ -52,23 +52,18 @@ const PointsTracker = ({
             <span className='pl-4'>50</span>
           </div>
         </div>
-
-      </div>
-      
+      </div>      
 
       <div className="flex items-center gap-2 text-lg font-medium p-2 pt-7 pb-9">
-      {/* Star Icon */}
-      <span className="text-yellow-300">
-        <GiStarGate size={35} />
-      </span>
-      
-      {/* Text */}
-      <span>Earn Points to Buy Medals!</span>
-    </div>
-
-
+        {/* Star Icon */}
+        <span className="text-yellow-300">
+          <GiStarGate size={35} />
+        </span>
         
-
+        {/* Text */}
+        <span>Earn Points to Buy Medals!</span>
+      </div>
+      
       <div className="space-y-4">
         <div className="text-center mb-2">
           <p className='pt-8'>Questions created: {numberQuestions}</p>
@@ -81,11 +76,6 @@ const PointsTracker = ({
         >
           Start quiz
         </button>
-
-        {/* <button onClick={() => setOpen(false)} type="button" class='w-full rounded-full text-white font-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2'>
-          SHOP 
-        </button> */}
-
       </div>
     </div>
   )

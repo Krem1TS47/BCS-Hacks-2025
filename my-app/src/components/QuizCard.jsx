@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import QuestionText from './QuestionText';
 import OptionsList from './OptionList';
 
-const QuizCard = ({ currentQuestion, totalQuestions, onSubmit, onGoBack }) => {
+const QuizCard = ({ 
+  currentQuestion, 
+  totalQuestions, 
+  onSubmit, 
+  onGoBack
+}) => {
   const [selectedOption, setSelectedOption] = useState(null);
   
   const handleOptionSelect = (optionIndex) => {

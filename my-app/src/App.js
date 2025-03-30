@@ -1,19 +1,29 @@
-import './App.css';
-import QuizCreator from './components/QuizCreator'
-import TestMain from './components/TestMain'
 import React, { useState } from 'react';
-import Header from './components/Header';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Shop from './pages/Shop'; 
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import fetchQuestions from './actions/fetchQuestions.js';
 import fetchPoints from './actions/fetchPoints';
+import './App.css';
+import Header from './components/Header';
+import QuizCreator from './components/QuizCreator';
+import TestMain from './components/TestMain';
+import Shop from './pages/Shop';
 
 export default function App() {
   const [open, setOpen] = useState(true);
   const [points, setPoints] = React.useState(0);
+  const [questions, setQuestions] = React.useState([]);
+  const [currentIndex, setCurrentIndex] = React.useState(1);
 
   React.useEffect(() => {
+    getQuestions();
     getPoints();
   });
+
+  async function getQuestions() {
+    const questionData = await fetchQuestions();
+    console.log("questionsData " + JSON.stringify(questionData, null, 2));
+    setQuestions(questionData);
+  }
 
   async function getPoints() {
     const pointsData = await fetchPoints();
@@ -26,9 +36,19 @@ export default function App() {
       <Header points={points} />
       {
         open? (
-          <QuizCreator setOpen={setOpen} points={points}/>
+          <QuizCreator 
+            setOpen={setOpen} 
+            points={points} 
+            questions={questions} 
+            setCurrentIndex={setCurrentIndex}
+          />
         ) : (
-          <TestMain setOpen={setOpen} />
+          <TestMain 
+            setOpen={setOpen} 
+            questions={questions}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}  
+          />
         )
       } 
       <Router>
